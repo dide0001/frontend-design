@@ -13,12 +13,18 @@ html {
     --on-action-primary: #fff;
     --action-secondary: light-dark(#E4E4E4, #181818);
     --on-action-secondary: light-dark(#000, #fff);
+
+    container-type: inline-size;
+    container-name: document;
 }
 
 article {
     padding: 1rlh;
     max-inline-size: 1200px;
     margin-inline: auto;
+
+    container-type: inline-size;
+    container-name: article;
 
     display: grid;
     gap: 1.5rlh;
@@ -34,18 +40,20 @@ article {
 }
 
 header {
+    container-type: inline-size;
+    container-name: header;
 
     img {
         aspect-ratio: 1;
         object-fit: cover;
         border-radius: 1rem;
+        display: block;
     }
 
     >div {
         display: grid;
         gap: 1rlh;
         align-items: start;
-
     }
 }
 
@@ -54,13 +62,11 @@ header {
     gap: .75rlh;
 }
 
-
 .album-details {
     display: flex;
     flex-flow: wrap;
     font-size: .9rem;
     row-gap: .2rlh;
-
 
     h1 {
         flex-basis: 100%;
@@ -134,17 +140,49 @@ header {
     }
 }
 
+@container article (width < 550px) {
+    .content {
+        margin-inline: -1rlh;
+    }
+
+    .album-details {
+        justify-content: center;
+        text-align: center;
+    }
+
+    .actions {
+        flex-direction: column;
+    }
+
+    .actions button[data-button] {
+        width: 100%;
+    }
+}
+
+@container header (width >= 550px) {
+    header > div {
+        grid-template-columns: 250px 1fr;
+        align-items: start;
+    }
+}
 
 
+@container header (width < 550px) {
+    header img {
+        -webkit-mask-image: linear-gradient(to bottom, #fff 70%, transparent 100%);
+                mask-image: linear-gradient(to bottom, #fff 70%, transparent 100%);
+        -webkit-mask-repeat: no-repeat;
+                mask-repeat: no-repeat;
+        -webkit-mask-size: 100% 100%;
+                mask-size: 100% 100%;
+    }
+}
 
-
-
-
-
-
-
-
-
+@container document (width > 768px) {
+    article {
+        grid-template-columns: 300px 1fr;
+    }
+}
 
 @layer {
     * {
@@ -156,7 +194,6 @@ header {
         font-family: system-ui, sans-serif;
     }
 }
-
 
 button[data-theme-switcher] {
     position: fixed;
