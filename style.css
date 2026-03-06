@@ -9,8 +9,106 @@
     --gray-700: #374151;
     --gray-800: #1f2937;
     --gray-900: #111827;
+
+    /* @link https://utopia.fyi/type/calculator?c=360,18,1.2,1240,20,1.25,5,2,&s=0.75|0.5|0.25,1.5|2|3|4|6,s-l&g=s,l,xl,12 */
+
+
+    --step--2: clamp(0.7813rem, 0.7736rem + 0.0341vw, 0.8rem);
+    --step--1: clamp(0.9375rem, 0.9119rem + 0.1136vw, 1rem);
+    --step-0: clamp(1.125rem, 1.0739rem + 0.2273vw, 1.25rem);
+    --step-1: clamp(1.35rem, 1.2631rem + 0.3864vw, 1.5625rem);
+    --step-2: clamp(1.62rem, 1.4837rem + 0.6057vw, 1.9531rem);
+    --step-3: clamp(1.944rem, 1.7405rem + 0.9044vw, 2.4414rem);
+    --step-4: clamp(2.3328rem, 2.0387rem + 1.3072vw, 3.0518rem);
+    --step-5: clamp(2.7994rem, 2.384rem + 1.8461vw, 3.8147rem);
+
+    --space-3xs: clamp(0.25rem, 0.25rem + 0vw, 0.25rem);
+    --space-2xs: clamp(0.4375rem, 0.3864rem + 0.2273vw, 0.5625rem);
+    --space-xs: clamp(0.6875rem, 0.6364rem + 0.2273vw, 0.8125rem);
+    --space-s: clamp(0.875rem, 0.7983rem + 0.3409vw, 1.0625rem);
+    --space-m: clamp(1.3125rem, 1.1847rem + 0.5682vw, 1.625rem);
+    --space-l: clamp(1.75rem, 1.5966rem + 0.6818vw, 2.125rem);
+    --space-xl: clamp(2.625rem, 2.3949rem + 1.0227vw, 3.1875rem);
+    --space-2xl: clamp(3.5rem, 3.1932rem + 1.3636vw, 4.25rem);
+    --space-3xl: clamp(5.25rem, 4.7898rem + 2.0455vw, 6.375rem);
+  
+    /* One-up pairs */
+    --space-3xs-2xs: clamp(0.25rem, 0.1222rem + 0.5682vw, 0.5625rem);
+    --space-2xs-xs: clamp(0.4375rem, 0.2841rem + 0.6818vw, 0.8125rem);
+    --space-xs-s: clamp(0.6875rem, 0.5341rem + 0.6818vw, 1.0625rem);
+    --space-s-m: clamp(0.875rem, 0.5682rem + 1.3636vw, 1.625rem);
+    --space-m-l: clamp(1.3125rem, 0.9801rem + 1.4773vw, 2.125rem);
+    --space-l-xl: clamp(1.75rem, 1.1619rem + 2.6136vw, 3.1875rem);
+    --space-xl-2xl: clamp(2.625rem, 1.9602rem + 2.9545vw, 4.25rem);
+    --space-2xl-3xl: clamp(3.5rem, 2.3239rem + 5.2273vw, 6.375rem);
+  
+    /* Custom pairs */
+    --space-s-l: clamp(0.875rem, 0.3636rem + 2.2727vw, 2.125rem);
 }
 
 body {
     font-family: system-ui, sans-serif;
+}
+
+article{
+    max-width: 1200px;
+    margin: 0 auto;
+    
+    > * + * {
+        margin-block-start: var(--step-0);
+        color: var(--gray-700);
+    }
+
+    h1{
+        font-size: var(--step-4);
+        line-height: 2rlh;
+        color: var(--gray-900)
+    }
+
+    h2 {
+        font-size: var(--step-3);
+        color: var(--gray-800)
+    }
+
+
+
+    figure{
+        margin: 0;
+    }
+
+    figcaption {
+        font-size: var(--step--1);
+        color: var(--gray-500);
+    }
+
+    p{
+        word-spacing: var(--space-3xs);
+        line-height: 1.6;
+    }
+
+    p + h2{
+        margin-block-start: var(--space-s-l);
+    }
+
+    a{
+        color: var(--gray-900);
+        /* text-decoration: none; */
+        font-size: var(--space-m);
+    }
+
+    code{
+        font-family: 'Courier New', Courier, monospace;
+        font-size: var(--step--2);
+        background-color: var(--gray-100);
+        padding: 0.2em 0.4em;
+        border-radius: 4px;
+    }
+
+
+
+
+
+
+
+
 }
