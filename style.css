@@ -104,6 +104,12 @@ article{
         border-radius: 4px;
     }
 
+    .text-lead{
+        font-size: var(--step-3);
+        line-height: 1;
+        color: var(--gray-600);
+    }
+
 
 
 
